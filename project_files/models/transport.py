@@ -5,6 +5,7 @@ class Transport:
         self.id = id
 
     def emissions_pm(self):
+        pass
         # return self.mpg * some factor
         # could consider it an if else statement as follows:
         # if mode is car:
@@ -18,3 +19,4 @@ class Transport:
         #   return a predetermined number
         # else if mode is train:
         #   return a predetermined number
+
