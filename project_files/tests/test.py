@@ -24,3 +24,9 @@ class TestClasses(unittest.TestCase):
         self.trip1 = Trip(40, datetime.date(2021, 8, 10), self.purpose1, self.transport1)
         self.trip2 = Trip(60, datetime.date(2021, 8, 11), self.purpose1, self.transport1)
         self.trip3 = Trip(500, datetime.date(2021, 8, 12), self.purpose2, self.transport4)
+
+    def test_trip1_has_day(self):
+        self.assertEqual(10, self.trip1.date.day)
+
+    def test_trip1_has_month(self):
+        self.assertEqual(8, self.trip1.date.month)
