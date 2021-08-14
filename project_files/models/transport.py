@@ -1,8 +1,7 @@
 class Transport:
-    def __init__(self, mode_of_travel, mpg, emissions_per_mile, id = None):
+    def __init__(self, mode_of_travel, mpg, id = None):
         self.mode_of_travel = mode_of_travel
         self.mpg = mpg
-        self.emissions_per_mile = emissions_per_mile
         self.id = id
 
     def emissions_pm(self):
@@ -19,4 +18,3 @@ class Transport:
         #   return a predetermined number
         # else if mode is train:
         #   return a predetermined number
-        

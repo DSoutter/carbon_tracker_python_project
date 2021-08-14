@@ -17,3 +17,8 @@ purpose2 = Purpose("For Work Travel")
 purpose3 = Purpose("Kids Taxi Service")
 purpose4 = Purpose("Leisure")
 
+transport1 = Transport("Car 1, petrol", 45)
+transport2 = Transport("Car 2, diesel", 50)
+transport3 = Transport("Bus", None)
+transport4 = Transport("Plane", None)
+transport5 = Transport("Train", None)
