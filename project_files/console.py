@@ -22,3 +22,7 @@ transport2 = Transport("Car 2, diesel", 50)
 transport3 = Transport("Bus", None)
 transport4 = Transport("Plane", None)
 transport5 = Transport("Train", None)
+
+trip1 = Trip(40, 01/04/2023, purpose1, transport1)
+trip2 = Trip(60, 02/04/2023, purpose1, transport1)
+trip3 = Trip(500, XXXX, purpose2, transport4)
