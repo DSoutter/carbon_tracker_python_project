@@ -12,3 +12,8 @@ transport_repo.delete_all()
 purpose_repo.delete_all()
 
 # Add in a few trips, transports and purposes to get started.
+purpose1 = Purpose("To/From Work")
+purpose2 = Purpose("For Work Travel")
+purpose3 = Purpose("Kids Taxi Service")
+purpose4 = Purpose("Leisure")
+
