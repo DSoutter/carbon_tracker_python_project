@@ -30,3 +30,6 @@ class TestClasses(unittest.TestCase):
 
     def test_trip1_has_month(self):
         self.assertEqual(8, self.trip1.date.month)
+
+    def test_trip1_has_purpose(self):
+        self.assertEqual("To/From Work", self.trip1.purpose.travel_type)       
