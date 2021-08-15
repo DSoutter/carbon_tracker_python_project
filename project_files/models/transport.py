@@ -30,8 +30,8 @@ class Transport:
                 unrounded_emissions = 10450/self.mpg
             else:
                 unrounded_emissions = 12270/self.mpg
-        elif "train" or "rail" in travel_mode:
-            unrounded_emissions = 56.5
+        elif "train" in travel_mode or "rail" in travel_mode:
+            unrounded_emissions = 56
         elif "plane" in travel_mode:
             unrounded_emissions = 145
         elif "bus" in travel_mode:
