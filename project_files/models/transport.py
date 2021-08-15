@@ -1,5 +1,5 @@
 from logging import NullHandler
-
+import math
 
 class Transport:
     def __init__(self, mode_of_travel, mpg, id = None):
@@ -23,20 +23,19 @@ class Transport:
         #   return a predetermined number
 
     def emissions_pm(self):
-            if "car" in self.mode_of_travel:
-                if "petrol" in self.mode_of_travel:
-                    return 12270/self.mpg
-                else:
-                    return 10450/self.mpg
-            elif "train" or "rail" in self.mode_of_travel:
-                return 56.5
-            elif "plane" in self.mode_of_travel:
-                return 145
-            elif "bus" in self.mode_of_travel:
-                return 100
+        unrounded_emissions= 0
+        if "car" in self.mode_of_travel:
+            if "petrol" in self.mode_of_travel:
+                unrounded_emissions = 12270/self.mpg
             else:
-                return None
-
+                unrounded_emissions = 10450/self.mpg
+        elif "train" or "rail" in self.mode_of_travel:
+            unrounded_emissions = 56.5
+        elif "plane" in self.mode_of_travel:
+            unrounded_emissions = 145
+        elif "bus" in self.mode_of_travel:
+            unrounded_emissions = 100
+        return round(unrounded_emissions)
 # plane CO2e = 145 g/mile
 # rail CO2e = 56.5g/mile
 # bus CO2e = 100g/mile

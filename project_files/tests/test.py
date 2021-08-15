@@ -36,3 +36,6 @@ class TestClasses(unittest.TestCase):
 
     def test_trip1_has_transport_mpg(self):
         self.assertEqual(45, self.trip1.mode_of_travel.mpg)
+
+    def test_trip1_emissions_figure(self):
+        
