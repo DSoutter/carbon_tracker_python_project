@@ -51,8 +51,8 @@ class TestClasses(unittest.TestCase):
         # pdb.set_trace()
         self.assertEqual(145, self.transport4.emissions_pm())
 
-    # def test_transport_has_correct_emissions_train(self):
-    #     self.assertEqual(232, self.transport5.emissions_pm())
+    def test_transport_has_correct_emissions_train(self):
+        self.assertEqual(56, self.transport5.emissions_pm())
     # def test_trip1_emissions_figure(self):
     #     pdb.set_trace()
     #     self.assertEqual(10440, self.trip1.emissions())
