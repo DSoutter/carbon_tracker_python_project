@@ -1,3 +1,4 @@
+from pdb import run
 from unittest import result
 from db.run_sql import run_sql
 
@@ -26,11 +27,20 @@ def select_all():
 
 # select
 
+def select(id):
+    sql = "SELECT * FROM purposes WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
+    if result is not None:
+        purpose = Purpose(result['travel_purpose'], result['id'])
 
 # delete
 
-
+def delete(id):
+    sql = "DELETE FROM purposes WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 # delete all
 
