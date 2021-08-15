@@ -29,8 +29,14 @@ def select_all():
 
 # select
 
+def select(id):
+    sql = "SELECT * FROM transport_types WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
-
+    if result is not None:
+        transport = Transport(result['mode_of_travel'], result['mpg'], result ['id']) 
+    return transport
 # delete
 
 

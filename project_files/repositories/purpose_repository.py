@@ -35,7 +35,7 @@ def select(id):
 
     if result is not None:
         purpose = Purpose(result['travel_purpose'], result['id'])
-
+    return purpose
 # delete
 
 def delete(id):
