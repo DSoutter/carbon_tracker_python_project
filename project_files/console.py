@@ -8,7 +8,7 @@ import repositories.transport_repository as transport_repo
 import repositories.trip_repository as trip_repo
 import datetime
 
-# trip_repo.delete_all()
+trip_repo.delete_all()
 transport_repo.delete_all()
 purpose_repo.delete_all()
 
@@ -40,4 +40,4 @@ transport_repo.save(transport3)
 transport_repo.save(transport4)
 transport_repo.save(transport5)
 
-pdb.set_trace()
+# pdb.set_trace()

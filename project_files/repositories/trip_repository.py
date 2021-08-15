@@ -26,7 +26,8 @@ from models.trip import Trip
 
 # delete all
 
-
-
+def delete_all():
+    sql = "DELETE FROM trips"
+    run_sql(sql)
 # update
 
