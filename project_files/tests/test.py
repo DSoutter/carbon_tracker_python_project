@@ -57,3 +57,7 @@ class TestClasses(unittest.TestCase):
     def test_trip1_emissions_figure(self):
         # pdb.set_trace()
         self.assertEqual(9280, self.trip1.emissions())
+
+    def test_trip2_emissions_figure(self):
+        # pdb.set_trace()
+        self.assertEqual(13920, self.trip2.emissions())
