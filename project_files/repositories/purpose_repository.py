@@ -44,6 +44,8 @@ def delete(id):
 
 # delete all
 
-
+def delete_all():
+    sql = "DELETE FROM purposes"
+    run_sql(sql)
 
 # update
