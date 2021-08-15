@@ -6,4 +6,6 @@ class Trip:
         self.mode_of_travel = mode_of_travel
         self.id = id
 
-        
+    def emissions(self, transport):
+        emissions = self.distance * transport.emissions_pm()
+        return emissions
