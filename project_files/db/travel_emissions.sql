@@ -20,6 +20,6 @@ CREATE TABLE trips (
     distance INT,
     carbon INT,
     date DATE, 
-    purpose_id INT REFERENCES purposes(id),
-    transport_type_id INT REFERENCES transport_types(id)
+    purpose_id SERIAL REFERENCES purposes(id),
+    transport_type_id SERIAL REFERENCES transport_types(id)
 );

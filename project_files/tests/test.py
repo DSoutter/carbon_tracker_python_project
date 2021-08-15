@@ -36,7 +36,7 @@ class TestClasses(unittest.TestCase):
         self.assertEqual("To/From Work", self.trip1.purpose.travel_type)       
 
     def test_trip1_has_transport_mpg(self):
-        self.assertEqual(45, self.trip1.mode_of_travel.mpg)
+        self.assertEqual(45, self.trip1.transport_type.mpg)
 
     def test_transport_has_correct_emissions_petrol(self):
         self.assertEqual(232, self.transport1.emissions_pm())

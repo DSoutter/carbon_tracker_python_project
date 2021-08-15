@@ -40,4 +40,8 @@ transport_repo.save(transport3)
 transport_repo.save(transport4)
 transport_repo.save(transport5)
 
+trip_repo.save(trip1)
+trip_repo.save(trip2)
+trip_repo.save(trip3)
+
 # pdb.set_trace()
