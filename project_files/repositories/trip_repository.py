@@ -57,3 +57,8 @@ def delete_all():
 
 # update
 
+def update(trip):
+    sql = "UPDATE trips SET (distance, carbon, date, purpose_id, transport_type_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [trip.distance, trip.emissions(), trip.date, trip.purpose.id, trip.transport_type.id, trip.id]
+    run_sql(sql, values)
+    
