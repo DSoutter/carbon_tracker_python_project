@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Travel Purposes</h1>
+{% for purpose in purposes %}
 
-Basic Page with nothing on it
+<section>
+    <p>{{purpose.travel_type}}</p>
+    <!-- Need to add add/edit and delete -->
+</section>
 
+{% endfor %}
 {% endblock %}
