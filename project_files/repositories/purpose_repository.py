@@ -1,5 +1,4 @@
 from pdb import run
-# from unittest import result
 
 from psycopg2.extensions import SQL_IN
 from db.run_sql import run_sql
