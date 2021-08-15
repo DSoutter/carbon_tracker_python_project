@@ -16,6 +16,15 @@ def save(transport):
 
 # select all
 
+def select_all():
+    transport_types = []
+    sql = "SELECT * FROM transport_types"
+    results = run_sql(sql)
+    for row in results:
+        transport = Transport(row['mode_of_travel'], row['mpg'], row['id'])
+        # carbon_per_mile = transport.emissions_pm()
+        transport_types.append(transport)
+    return transport_types
 
 
 # select

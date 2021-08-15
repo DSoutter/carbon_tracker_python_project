@@ -33,7 +33,6 @@ purpose_repo.save(purpose2)
 purpose_repo.save(purpose3)
 purpose_repo.save(purpose4)
 
-# pdb.set_trace()
 
 transport_repo.save(transport1)
 transport_repo.save(transport2)
@@ -41,3 +40,4 @@ transport_repo.save(transport3)
 transport_repo.save(transport4)
 transport_repo.save(transport5)
 
+pdb.set_trace()
