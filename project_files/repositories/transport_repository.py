@@ -52,4 +52,7 @@ def delete_all():
 
 # update
 
-
+def update(transport):
+    sql = "UPDATE transport_types SET (mode_of_travel, carbon_per_mile, mpg) = (%s, %s, %s) WHERE id = %s"
+    values = [transport.mode_of_travel, transport.emissions_pm(), transport.mpg, transport.id]
+    run_sql(sql, values)
