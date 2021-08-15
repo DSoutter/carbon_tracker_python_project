@@ -10,8 +10,9 @@ CREATE TABLE purposes (
 
 CREATE TABLE transport_types (
     id SERIAL PRIMARY KEY,
-    mode_of_travel INT,
-    carbon_per_mile INT
+    mode_of_travel VARCHAR(255),
+    carbon_per_mile INT,
+    mpg INT
 );
 
 CREATE TABLE trips (

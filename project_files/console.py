@@ -10,7 +10,7 @@ import repositories.trip_repository as trip_repo
 import datetime
 
 # trip_repo.delete_all()
-# transport_repo.delete_all()
+transport_repo.delete_all()
 purpose_repo.delete_all()
 
 # Add in a few trips, transports and purposes to get started.
@@ -18,11 +18,6 @@ purpose1 = Purpose("To/From Work", 30)
 purpose2 = Purpose("For Work Travel")
 purpose3 = Purpose("Kids Taxi Service")
 purpose4 = Purpose("Leisure")
-
-purpose_repo.save(purpose1)
-purpose_repo.save(purpose2)
-purpose_repo.save(purpose3)
-purpose_repo.save(purpose4)
 
 transport1 = Transport("Car 1, petrol", 45)
 transport2 = Transport("Car 2, diesel", 50)
@@ -33,5 +28,16 @@ transport5 = Transport("Train", None)
 trip1 = Trip(40, datetime.date(2021, 8, 10), purpose1, transport1)
 trip2 = Trip(60, datetime.date(2021, 8, 11), purpose1, transport1)
 trip3 = Trip(500, datetime.date(2021, 8, 12), purpose2, transport4)
+
+purpose_repo.save(purpose1)
+purpose_repo.save(purpose2)
+purpose_repo.save(purpose3)
+purpose_repo.save(purpose4)
+
+transport_repo.save(transport1)
+transport_repo.save(transport2)
+transport_repo.save(transport3)
+transport_repo.save(transport4)
+transport_repo.save(transport5)
 
 pdb.set_trace()
