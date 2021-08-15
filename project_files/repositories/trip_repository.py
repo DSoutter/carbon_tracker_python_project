@@ -32,8 +32,16 @@ def select_all():
     return trips
 # select
 
+def select(id):
+    sql = "SELECT * FROM trips WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
-
+    if result is not None:
+        purpose = purpose_repo.select(result['purpose_id'])
+        transport_type = transport_repo.select(result['transport_type_id'])
+        trip = Trip(result['distance'], result['date'], purpose, transport_type, result['id'])
+    return trip
 # delete
 
 
