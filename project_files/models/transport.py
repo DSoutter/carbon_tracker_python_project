@@ -1,4 +1,3 @@
-from logging import NullHandler
 import math
 
 class Transport:

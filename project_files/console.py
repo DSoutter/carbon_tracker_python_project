@@ -9,9 +9,9 @@ import repositories.transport_repository as transport_repo
 import repositories.trip_repository as trip_repo
 import datetime
 
-trip_repo.delete_all()
-transport_repo.delete_all()
-purpose_repo.delete_all()
+# trip_repo.delete_all()
+# transport_repo.delete_all()
+# purpose_repo.delete_all()
 
 # Add in a few trips, transports and purposes to get started.
 purpose1 = Purpose("To/From Work")
@@ -28,3 +28,5 @@ transport5 = Transport("Train", None)
 trip1 = Trip(40, datetime.date(2021, 8, 10), purpose1, transport1)
 trip2 = Trip(60, datetime.date(2021, 8, 11), purpose1, transport1)
 trip3 = Trip(500, datetime.date(2021, 8, 12), purpose2, transport4)
+
+pdb.set_trace()
