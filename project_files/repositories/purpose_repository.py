@@ -9,7 +9,7 @@ from models.purpose import Purpose
 
 def save(purpose):
     sql = "INSERT INTO purposes (travel_purpose) VALUES (%s) RETURNING *"
-    values = [purpose.travel_type]
+    values = [purpose.travel_purpose]
     results = run_sql(sql, values)
     id = results[0]['id']
     purpose.id = id
@@ -52,5 +52,5 @@ def delete_all():
 
 def update(purpose):
     sql = "UPDATE purposes SET travel_purpose = %s WHERE id = %s"
-    values= [purpose.travel_type, purpose.id]
+    values= [purpose.travel_purpose, purpose.id]
     run_sql(sql, values)
