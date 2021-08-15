@@ -39,7 +39,10 @@ def select(id):
     return transport
 # delete
 
-
+def delete(id):
+    sql = "DELETE FROM transport_types WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 # delete all
 
