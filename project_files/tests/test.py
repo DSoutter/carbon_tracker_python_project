@@ -1,4 +1,5 @@
 import unittest
+import pdb
 from models.purpose import *
 from models.transport import *
 from models.trip import *
@@ -37,5 +38,9 @@ class TestClasses(unittest.TestCase):
     def test_trip1_has_transport_mpg(self):
         self.assertEqual(45, self.trip1.mode_of_travel.mpg)
 
-    def test_trip1_emissions_figure(self):
-        
+    def test_transport_has_correct_emissions(self):
+        self.assertEqual(232, self.transport1.emissions_pm())
+
+    # def test_trip1_emissions_figure(self):
+    #     pdb.set_trace()
+    #     self.assertEqual(10440, self.trip1.emissions())

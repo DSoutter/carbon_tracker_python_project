@@ -24,23 +24,24 @@ class Transport:
 
     def emissions_pm(self):
         unrounded_emissions= 0
-        if "car" in self.mode_of_travel:
-            if "petrol" in self.mode_of_travel:
-                unrounded_emissions = 12270/self.mpg
-            else:
+        travel_mode = self.mode_of_travel.lower()
+        if "car" in travel_mode:
+            if "petrol" in travel_mode:
                 unrounded_emissions = 10450/self.mpg
-        elif "train" or "rail" in self.mode_of_travel:
+            else:
+                unrounded_emissions = 12270/self.mpg
+        elif "train" or "rail" in travel_mode:
             unrounded_emissions = 56.5
-        elif "plane" in self.mode_of_travel:
+        elif "plane" in travel_mode:
             unrounded_emissions = 145
-        elif "bus" in self.mode_of_travel:
+        elif "bus" in travel_mode:
             unrounded_emissions = 100
         return round(unrounded_emissions)
 # plane CO2e = 145 g/mile
 # rail CO2e = 56.5g/mile
 # bus CO2e = 100g/mile
-# petrol car = 2.7 kg CO2/litre = 12.27 kg CO2/gallon
-# diesel car = 2.3 kg CO2/litre = 10.45 kg CO2/gallon
+# petrol car = 2.3 kg CO2/litre = 10.45 kg CO2/gallon
+# diesel car = 2.7 kg CO2/litre = 12.27 kg CO2/gallon
 # plane CO2e emissions is 90g/RPK (revenue passenger kilometer) globally on average: https://theicct.org/sites/default/files/publications/CO2-commercial-aviation-oct2020.pdf
 # rail CO2e emissions is 35.1g/km: https://dataportal.orr.gov.uk/media/1843/rail-emissions-2019-20.pdf
 # bus CO2e emissions: https://www.carbonindependent.org/20.html
