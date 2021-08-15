@@ -3,7 +3,6 @@ from models.purpose import Purpose
 from models.transport import Transport
 from models.trip import Trip
 
-
 import repositories.purpose_repository as purpose_repo
 import repositories.transport_repository as transport_repo
 import repositories.trip_repository as trip_repo
@@ -14,7 +13,7 @@ transport_repo.delete_all()
 purpose_repo.delete_all()
 
 # Add in a few trips, transports and purposes to get started.
-purpose1 = Purpose("To/From Work", 30)
+purpose1 = Purpose("To/From Work")
 purpose2 = Purpose("For Work Travel")
 purpose3 = Purpose("Kids Taxi Service")
 purpose4 = Purpose("Leisure")
@@ -34,10 +33,11 @@ purpose_repo.save(purpose2)
 purpose_repo.save(purpose3)
 purpose_repo.save(purpose4)
 
+# pdb.set_trace()
+
 transport_repo.save(transport1)
 transport_repo.save(transport2)
 transport_repo.save(transport3)
 transport_repo.save(transport4)
 transport_repo.save(transport5)
 
-pdb.set_trace()
