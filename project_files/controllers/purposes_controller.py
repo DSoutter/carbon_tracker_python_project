@@ -20,9 +20,15 @@ def new_purpose():
 
 # Create (posting the new purpose to the list)
 
+@purposes_blueprint.route("/purposes", methods=["POST"])
+def create_purpose():
+    travel_purpose = request.form["travel_purpose"]
+    new_purpose = Purpose(travel_purpose)
+    purpose_repo.save(new_purpose)
+    return redirect("/purposes")
 
 
-# Edit (editing an existing purpose)
+# Edit Later if needed
 
 
 
