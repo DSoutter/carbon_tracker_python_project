@@ -44,4 +44,4 @@ trip_repo.save(trip1)
 trip_repo.save(trip2)
 trip_repo.save(trip3)
 
-# pdb.set_trace()
+pdb.set_trace()
