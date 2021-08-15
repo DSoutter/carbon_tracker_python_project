@@ -12,6 +12,5 @@ app.register_blueprint(purposes_blueprint)
 def main():
     return render_template('index.html')
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run()
-    
