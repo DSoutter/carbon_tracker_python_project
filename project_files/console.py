@@ -14,10 +14,15 @@ import datetime
 purpose_repo.delete_all()
 
 # Add in a few trips, transports and purposes to get started.
-purpose1 = Purpose("To/From Work")
+purpose1 = Purpose("To/From Work", 30)
 purpose2 = Purpose("For Work Travel")
 purpose3 = Purpose("Kids Taxi Service")
 purpose4 = Purpose("Leisure")
+
+purpose_repo.save(purpose1)
+purpose_repo.save(purpose2)
+purpose_repo.save(purpose3)
+purpose_repo.save(purpose4)
 
 transport1 = Transport("Car 1, petrol", 45)
 transport2 = Transport("Car 2, diesel", 50)

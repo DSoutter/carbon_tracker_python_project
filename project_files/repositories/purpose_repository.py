@@ -1,5 +1,7 @@
 from pdb import run
 from unittest import result
+
+from psycopg2.extensions import SQL_IN
 from db.run_sql import run_sql
 
 from models.purpose import Purpose
@@ -7,7 +9,7 @@ from models.purpose import Purpose
 # save
 
 def save(purpose):
-    sql = "INSERT INTO purposes (travel_purpose) VALUES (%s)"
+    sql = "INSERT INTO purposes (travel_purpose) VALUES (%s) RETURNING *"
     values = [purpose.travel_type]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -49,3 +51,8 @@ def delete_all():
     run_sql(sql)
 
 # update
+
+def update(purpose):
+    sql = "UPDATE purposes SET travel_purpose = %s WHERE id = %s"
+    values= [purpose.travel_type, purpose.id]
+    run_sql(sql, values)
