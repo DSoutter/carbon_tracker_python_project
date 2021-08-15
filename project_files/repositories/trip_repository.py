@@ -44,12 +44,16 @@ def select(id):
     return trip
 # delete
 
-
+def delete(id):
+    sql = "DELETE FROM trips WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 # delete all
 
 def delete_all():
     sql = "DELETE FROM trips"
     run_sql(sql)
+
 # update
 
