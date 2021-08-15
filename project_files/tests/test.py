@@ -33,7 +33,7 @@ class TestClasses(unittest.TestCase):
         self.assertEqual(8, self.trip1.date.month)
 
     def test_trip1_has_purpose(self):
-        self.assertEqual("To/From Work", self.trip1.purpose.travel_type)       
+        self.assertEqual("To/From Work", self.trip1.purpose.travel_purpose)       
 
     def test_trip1_has_transport_mpg(self):
         self.assertEqual(45, self.trip1.transport_type.mpg)
