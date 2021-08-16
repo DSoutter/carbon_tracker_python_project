@@ -24,10 +24,9 @@
     </div>
     <div>
         <label for="transport_type">Choose transport type: </label>
-        <select name="transport_id" id="transport">
-            <option disabled="disabled" selected="true" value>--Select a transport type--</option>
+        <select name="transport_id" id="transport_type">
             {% for transport_type in transport_types %}
-            <option value="{{transport_type.id}}">
+            <option value="{{trip.transport_type}}" {% if transport_type.id == trip.transport_type.id %} selected {% endif %}>
                 {{transport_type.mode_of_travel}}
             </option>
             {% endfor %}

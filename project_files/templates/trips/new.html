@@ -26,7 +26,6 @@
     <div>
         <label for="transport_type">Choose transport type: </label>
         <select name="transport_id" id="transport">
-            <option disabled="disabled" selected="true" value>--Select a transport type--</option>
             {% for transport_type in transport_types %}
             <option value="{{transport_type.id}}">
                 {{transport_type.mode_of_travel}}

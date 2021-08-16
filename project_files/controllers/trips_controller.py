@@ -1,3 +1,4 @@
+import re
 from flask.templating import DispatchingJinjaLoader
 from controllers.transport_types_controller import transport_type
 from flask import Flask, request, redirect, render_template, Blueprint
@@ -54,6 +55,24 @@ def edit_trip(id):
     return render_template('trips/edit.html', trip = trip, transport_type = transport_type, purposes = purposes, transport_types = transport_types)
 # Update Later if needed
 
+@trip_blueprint.route("/trips/<id>", methods=['POST'])
+def update_trip(id):
+    distance = request.form['distance']
+    date = request.form['date']
+    purpose_id = request.form["purpose_id"]
+    transport_type_id = request.form["transport_id"]
+    trip= Trip(distance, date, purpose_id, transport_type_id, id)
+    trip_repo.update(trip)
+    return redirect("/trips")
 
+# @bitings_blueprint.route("/bitings/<id>", methods=["POST"])
+# def update_biting(id):
+#     human_id = request.form["human_id"]
+#     zombie_id = request.form["zombie_id"]
+#     human = human_repository.select(human_id)
+#     zombie = zombie_repository.select(zombie_id)
+#     biting = Biting(human, zombie, id)
+#     biting_repository.update(biting)
+#     return redirect("/bitings")
 
 # Delete Later if needed
