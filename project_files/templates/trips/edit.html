@@ -15,9 +15,8 @@
     <div>
         <label for="purpose">Trip purpose: </label>
         <select name="purpose_id" id="purpose">
-            <option disabled="disabled" value= "{{purpose.travel_purpose}}"></option>
             {% for purpose in purposes %}
-            <option value="{{purpose.travel_purpose}}" >
+            <option value="{{trip.purpose}}" {% if purpose.id == trip.purpose.id %} selected {% endif %}>
                 {{purpose.travel_purpose}}
             </option>
             {% endfor %}

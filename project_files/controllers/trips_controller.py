@@ -48,10 +48,10 @@ def create_trip():
 def edit_trip(id):
     purposes = purpose_repo.select_all()
     transport_types =transport_repo.select_all() 
-    purpose = purpose_repo.select(id)
-    transport_type = transport_repo.select(id)
+    # purpose = purpose_repo.select(id)
+    # transport_type = transport_repo.select(id)
     trip = trip_repo.select(id)
-    return render_template('trips/edit.html', trip = trip, purpose = purpose, transport_type = transport_type)
+    return render_template('trips/edit.html', trip = trip, transport_type = transport_type, purposes = purposes, transport_types = transport_types)
 # Update Later if needed
 
 
