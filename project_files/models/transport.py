@@ -24,11 +24,10 @@ class Transport:
     def emissions_pm(self):
         unrounded_emissions= 0
         travel_mode = self.mode_of_travel.lower()
-        if "car" in travel_mode:
-            if "petrol" in travel_mode:
-                unrounded_emissions = 10450/self.mpg
-            else:
-                unrounded_emissions = 12270/self.mpg
+        if "petrol" in travel_mode:
+            unrounded_emissions = 10450/self.mpg
+        elif "diesel" in travel_mode:
+            unrounded_emissions = 12270/self.mpg
         elif "train" in travel_mode or "rail" in travel_mode:
             unrounded_emissions = 56
         elif "plane" in travel_mode:
