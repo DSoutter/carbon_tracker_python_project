@@ -3,6 +3,7 @@ from flask import Flask, request, redirect, render_template, Blueprint
 
 from models.purpose import Purpose
 import repositories.purpose_repository as purpose_repo
+import repositories.trip_repository as trip_repo
 
 purposes_blueprint = Blueprint("purposes", __name__)
 
@@ -10,14 +11,16 @@ purposes_blueprint = Blueprint("purposes", __name__)
 
 @purposes_blueprint.route("/purposes")
 def purposes():
+    total_carbon_emissions = trip_repo.total()
     purposes = purpose_repo.select_all()
-    return render_template("purposes/index.html", purposes = purposes)
+    return render_template("purposes/index.html", purposes = purposes, total_carbon_emissions= total_carbon_emissions)
 
 # New (add a new purpose screen)
 
 @purposes_blueprint.route("/purposes/new")
 def new_purpose():
-    return render_template("purposes/new.html")
+    total_carbon_emissions = trip_repo.total()
+    return render_template("purposes/new.html", total_carbon_emissions= total_carbon_emissions)
 
 # Create (posting the new purpose to the list)
 
@@ -33,8 +36,9 @@ def create_purpose():
 
 @purposes_blueprint.route("/purposes/edit/<id>")
 def edit_purpose(id):
+    total_carbon_emissions = trip_repo.total()
     purpose = purpose_repo.select(id)
-    return render_template('purposes/edit.html', purpose=purpose)
+    return render_template('purposes/edit.html', purpose=purpose, total_carbon_emissions= total_carbon_emissions)
 
 # Update Later if needed
 

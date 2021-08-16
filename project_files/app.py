@@ -11,11 +11,11 @@ app.register_blueprint(purposes_blueprint)
 app.register_blueprint(transport_blueprint)
 app.register_blueprint(trip_blueprint)
 
-
 @app.route("/")
 def main():
     total_carbon_emissions = trip_repo.total()
-    return render_template('index.html', total_carbon_emissions= total_carbon_emissions)
+    count_of_trips = trip_repo.count()
+    return render_template('index.html', total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips)
 
 if __name__ == '__main__':
     app.run()

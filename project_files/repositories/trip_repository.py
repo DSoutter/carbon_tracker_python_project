@@ -67,3 +67,7 @@ def update(trip):
 def total():
     sql = "SELECT SUM(carbon) FROM trips" 
     return run_sql(sql)[0][0]
+
+def count():
+    sql = "SELECT COUNT(id) FROM TRIPS"
+    return run_sql(sql)[0][0]
