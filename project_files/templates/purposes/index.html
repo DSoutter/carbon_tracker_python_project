@@ -5,7 +5,13 @@
 
 <section>
     <p>{{purpose.travel_purpose}}</p>
-    <!-- Need to add add/edit and delete -->
+    <a href="/purposes/edit/{{purpose.id}}"><input type="button" value="Edit"></a>
+    <!-- <form action="/purposes/edit/{{purpose.id}}" method="POST"> -->
+        
+    </form>
+    <form action="/purposes/delete/{{purpose.id}}" method="POST">
+        <input type="submit" value="Delete">
+    </form>
 </section>
 
 {% endfor %}

@@ -46,3 +46,8 @@ def update_purpose(id):
     return redirect("/purposes")
 
 # Delete Later if needed
+
+@purposes_blueprint.route("/purposes/delete/<id>", methods = ['POST'])
+def delete_purpose(id):
+    purpose_repo.delete(id)
+    return redirect("/purposes")
