@@ -76,7 +76,7 @@ def update_trip(id):
 
 # Delete Later if needed
 
-@trip_blueprint.route("/trips/<id>", methods=["POST"])
+@trip_blueprint.route("/trips/delete/<id>", methods=["POST"])
 def delete_trip(id):
     trip_repo.delete(id)
     return redirect("/trips")

@@ -10,6 +10,13 @@
     <p>Purpose: {{trip.purpose.travel_purpose}} </p> 
     <p>Journey by: {{trip.transport_type.mode_of_travel}}</p>
     <p>Journey emissions: {{ trip.emissions()}} CO<sub>2</sub>e</p>
+    <a href="/trips/edit/{{trip.id}}">
+        <input type="button" value="Edit">
+    </a>        
+    </form>
+    <form action="/trips/delete/{{trip.id}}" method="POST">
+        <input type="submit" value="Delete">
+    </form>
 </section>
 
 {% endfor %}
