@@ -1,3 +1,4 @@
+from flask.templating import DispatchingJinjaLoader
 from controllers.transport_types_controller import transport_type
 from flask import Flask, request, redirect, render_template, Blueprint
 
@@ -29,7 +30,17 @@ def new_trip():
 
 # Create (posting the new trip to the list)
 
-
+@trip_blueprint.route("/trips", methods=["POST"])
+def create_trip():
+    distance = request.form['distance']
+    date = request.form['date']
+    purpose_id = request.form['purpose_id']
+    transport_type_id = request.form['transport_id']
+    purpose = purpose_repo.select(purpose_id)
+    transport_type = transport_repo.select(transport_type_id)
+    new_trip = Trip(int(distance), date, purpose, transport_type)
+    trip_repo.save(new_trip)
+    return redirect("/trips")
 
 # Edit Later if needed
 

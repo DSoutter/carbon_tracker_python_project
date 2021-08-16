@@ -1,3 +1,4 @@
+from os import pipe
 from flask import Flask, request, redirect, render_template, Blueprint
 
 from models.purpose import Purpose
@@ -30,7 +31,10 @@ def create_purpose():
 
 # Edit Later if needed
 
-
+@purposes_blueprint.route("/purposes/<id>/edit")
+def edit_purpose(id):
+    purpose = purpose_repo.select(id)
+    return render_template('purpose/edit.html', purpose=purpose)
 
 # Update Later if needed
 
