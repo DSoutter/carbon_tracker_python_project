@@ -15,12 +15,18 @@ def transport_types():
 # New (add a new type screen)
 
 @transport_blueprint.route("/transport_types/new")
-def def_transport_type():
+def transport_type():
     return render_template("transport_types/new.html")
 
 # Create (posting the new type to the list)
 
-
+@transport_blueprint.route("/transport_types", methods=['POST'])
+def create_transport_type():
+    transport_type = request.form["transport_type"]
+    transport_mpg = request.form["transport_mpg"]
+    new_type = Transport(transport_type, int(transport_mpg))
+    transport_repo.save(new_type)
+    return redirect("/transport_types")
 
 # Edit Later if needed
 
