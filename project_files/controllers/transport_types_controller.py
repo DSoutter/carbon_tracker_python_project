@@ -3,6 +3,9 @@ from flask import Flask, request, redirect, render_template, Blueprint
 from models.transport import Transport
 import repositories.transport_repository as transport_repo
 
+from models.trip import Trip
+import repositories.trip_repository as trip_repo
+
 transport_blueprint = Blueprint("transport_types", __name__)
 
 # Index (all the types on one screen)
@@ -41,13 +44,13 @@ def edit_transport_type(id):
 def update_transport(id):
     mode_of_travel = request.form['transport_type']
     mpg = request.form['transport_mpg']
-    purpose= Purpose(travel_purpose, id)
-    purpose_repo.update(purpose)
-    return redirect("/purposes")
+    transport= Transport(mode_of_travel, int(mpg), id)
+    transport_repo.update(transport)
+    return redirect("/transport_types")
 
 # # Delete Later if needed
 
-# @purposes_blueprint.route("/purposes/delete/<id>", methods = ['POST'])
-# def delete_purpose(id):
-#     purpose_repo.delete(id)
-#     return redirect("/purposes")
+@transport_blueprint.route("/transport_types/delete/<id>", methods = ['POST'])
+def delete_transport_type(id):
+    transport_repo.delete(id)
+    return redirect("/transport_types")

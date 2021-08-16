@@ -7,6 +7,13 @@
 <section>
     <p>{{transport.mode_of_travel}}</p>
     <p>{{transport.emissions_pm()}}</p>
+    <a href="/transport_types/edit/{{transport.id}}">
+        <input type="button" value="Edit">
+    </a>        
+    </form>
+    <form action="/transport_types/delete/{{transport.id}}" method="POST">
+        <input type="submit" value="Delete">
+    </form>
     <!-- <p>{{transport.mpg}}</p> -->
 </section>
 
