@@ -1,3 +1,4 @@
+from controllers.transport_types_controller import transport_type
 from flask import Flask, request, redirect, render_template, Blueprint
 
 from models.trip import Trip
@@ -19,6 +20,11 @@ def trips():
 
 # New (add a new trip screen)
 
+@trip_blueprint.route("/trips/new")
+def new_trip():
+    purposes = purpose_repo.select_all()
+    transport_types = transport_repo.select_all()
+    return render_template("trips/new.html", purposes = purposes, transport_types = transport_types)
 
 
 # Create (posting the new trip to the list)
