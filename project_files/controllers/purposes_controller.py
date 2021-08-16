@@ -31,13 +31,18 @@ def create_purpose():
 
 # Edit Later if needed
 
-@purposes_blueprint.route("/purposes/<id>/edit")
+@purposes_blueprint.route("/purposes/edit/<id>")
 def edit_purpose(id):
     purpose = purpose_repo.select(id)
-    return render_template('purpose/edit.html', purpose=purpose)
+    return render_template('purposes/edit.html', purpose=purpose)
 
 # Update Later if needed
 
-
+@purposes_blueprint.route("/purposes/<id>", methods=['POST'])
+def update_purpose(id):
+    travel_purpose = request.form['travel_purpose']
+    purpose= Purpose(travel_purpose, id)
+    purpose_repo.update(purpose)
+    return redirect("/purposes")
 
 # Delete Later if needed
