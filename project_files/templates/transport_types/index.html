@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Different Modes of Travel</h1>
 
-Basic Page with nothing on it
+{% for transport in transport_types %}
 
+<section>
+    <p>{{transport.mode_of_travel}}</p>
+    <p>{{transport.carbon_per_mile}}</p>
+<!-- mode of Travel -->
+<!-- carbon per mile -->
+
+</section>
+
+{% endfor %}
 {% endblock %}

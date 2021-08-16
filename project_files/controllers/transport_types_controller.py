@@ -5,17 +5,17 @@ import repositories.transport_repository as transport_repo
 
 transport_blueprint = Blueprint("transport_types", __name__)
 
-# Index (all the purposes on one screen)
+# Index (all the types on one screen)
 
 @transport_blueprint.route("/transport_types")
 def transport_types():
     transport_types = transport_repo.select_all()
     return render_template("transport_types/index.html", transport_types = transport_types)
 
-# New (add a new purpose screen)
+# New (add a new type screen)
 
 
-# Create (posting the new purpose to the list)
+# Create (posting the new type to the list)
 
 
 
