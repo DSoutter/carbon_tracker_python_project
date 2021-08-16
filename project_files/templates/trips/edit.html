@@ -1,6 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1>Modify Trip</h1>
 
+<form action="/trips/{{trip.id}}" method="POST">
+    <div>
+        <label for="distance">Distance travelled: </label>
+        <input type="number" name="distance" id="distance" min="0" value="{{trip.distance}}">
+    </div>
+    <div>
+        <label for="date">Date of trip: </label>
+        <input type="date" name="date" id="date" value = "{{trip.date}}">
+    </div>
+    <div>
+        <label for="purpose">Trip purpose: </label>
+        <select name="purpose_id" id="purpose">
+            <option disabled="disabled" value= "{{purpose.travel_purpose}}"></option>
+            {% for purpose in purposes %}
+            <option value="{{purpose.travel_purpose}}" >
+                {{purpose.travel_purpose}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="transport_type">Choose transport type: </label>
+        <select name="transport_id" id="transport">
+            <option disabled="disabled" selected="true" value>--Select a transport type--</option>
+            {% for transport_type in transport_types %}
+            <option value="{{transport_type.id}}">
+                {{transport_type.mode_of_travel}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div><input type="submit"></div>
+</form>
 
 {% endblock %}

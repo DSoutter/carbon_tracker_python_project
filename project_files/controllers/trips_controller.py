@@ -44,8 +44,14 @@ def create_trip():
 
 # Edit Later if needed
 
-
-
+@trip_blueprint.route("/trips/edit/<id>")
+def edit_trip(id):
+    purposes = purpose_repo.select_all()
+    transport_types =transport_repo.select_all() 
+    purpose = purpose_repo.select(id)
+    transport_type = transport_repo.select(id)
+    trip = trip_repo.select(id)
+    return render_template('trips/edit.html', trip = trip, purpose = purpose, transport_type = transport_type)
 # Update Later if needed
 
 
