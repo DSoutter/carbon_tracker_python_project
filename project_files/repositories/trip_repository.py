@@ -62,3 +62,8 @@ def update(trip):
     values = [trip.distance, trip.emissions(), trip.date, trip.purpose.id, trip.transport_type.id, trip.id]
     run_sql(sql, values)
     
+# total emissions
+
+def total():
+    sql = "SELECT SUM(carbon) FROM trips" 
+    return run_sql(sql)[0][0]
