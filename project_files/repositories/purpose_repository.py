@@ -18,7 +18,7 @@ def save(purpose):
 
 def select_all():
     purposes = []
-    sql = "SELECT * FROM purposes"
+    sql = "SELECT * FROM purposes ORDER BY id"
     results = run_sql(sql)
     for row in results:
         purpose = Purpose(row['travel_purpose'], row['id'])

@@ -22,7 +22,7 @@ def save(trip):
 
 def select_all():
     trips = []
-    sql = "SELECT * FROM trips"
+    sql = "SELECT * FROM trips ORDER BY date DESC"
     results = run_sql(sql)
     for row in results:
         purpose = purpose_repo.select(row['purpose_id'])

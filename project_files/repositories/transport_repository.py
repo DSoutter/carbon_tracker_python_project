@@ -18,7 +18,7 @@ def save(transport):
 
 def select_all():
     transport_types = []
-    sql = "SELECT * FROM transport_types"
+    sql = "SELECT * FROM transport_types ORDER BY id"
     results = run_sql(sql)
     for row in results:
         transport = Transport(row['mode_of_travel'], row['mpg'], row['id'])
