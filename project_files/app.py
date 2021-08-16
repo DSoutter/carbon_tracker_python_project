@@ -4,6 +4,9 @@ from controllers.purposes_controller import purposes_blueprint
 from controllers.transport_types_controller import transport_blueprint
 from controllers.trips_controller import trip_blueprint
 import repositories.trip_repository as trip_repo
+import repositories.transport_repository as transport_repo
+import repositories.purpose_repository as purpose_repo
+
 
 app = Flask(__name__)
 

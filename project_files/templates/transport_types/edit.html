@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1>Modify Travel Tyoe</h1>
 
+<form action="/transport_types/{{transport_type.id}}", method='POST'>
+    <div>
+        <label for="transport_type">Input a new vehicle, include fuel type: </label>
+        <input type="text" id="transport_type" name="transport_type" value="{{transport_type.mode_of_travel}}">
+        <label for="transport_mpg">Input the vehicles average MPG: </label>
+        <input type="int" id="transport_mpg" name="transport_mpg" value="{{transport_type.mpg}}">
+        <input type="submit">
+    </div>
+</form>
 
 {% endblock %}

@@ -25,7 +25,7 @@
     </div>
     <div>
         <label for="transport_type">Choose transport type: </label>
-        <select name="transport_id" id="transport">
+        <select name="transport_id" id="transport_type">
             {% for transport_type in transport_types %}
             <option value="{{transport_type.id}}">
                 {{transport_type.mode_of_travel}}

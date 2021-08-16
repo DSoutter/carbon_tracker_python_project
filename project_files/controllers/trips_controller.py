@@ -1,6 +1,5 @@
-import re
 from flask.templating import DispatchingJinjaLoader
-from controllers.transport_types_controller import transport_type
+
 from flask import Flask, request, redirect, render_template, Blueprint
 
 from models.trip import Trip
@@ -49,10 +48,8 @@ def create_trip():
 def edit_trip(id):
     purposes = purpose_repo.select_all()
     transport_types =transport_repo.select_all() 
-    # purpose = purpose_repo.select(id)
-    # transport_type = transport_repo.select(id)
     trip = trip_repo.select(id)
-    return render_template('trips/edit.html', trip = trip, transport_type = transport_type, purposes = purposes, transport_types = transport_types)
+    return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types)
 # Update Later if needed
 
 @trip_blueprint.route("/trips/<id>", methods=['POST'])
@@ -61,7 +58,9 @@ def update_trip(id):
     date = request.form['date']
     purpose_id = request.form["purpose_id"]
     transport_type_id = request.form["transport_id"]
-    trip= Trip(distance, date, purpose_id, transport_type_id, id)
+    purpose = purpose_repo.select(purpose_id)
+    transport_type = transport_repo.select(transport_type_id)
+    trip= Trip(distance, date, purpose, transport_type, id)
     trip_repo.update(trip)
     return redirect("/trips")
 

@@ -30,10 +30,24 @@ def create_transport_type():
 
 # Edit Later if needed
 
-
+@transport_blueprint.route("/transport_types/edit/<id>")
+def edit_transport_type(id):
+    transport_type = transport_repo.select(id)
+    return render_template('transport_types/edit.html', transport_type=transport_type)
 
 # Update Later if needed
 
+@transport_blueprint.route("/transport_types/<id>", methods=['POST'])
+def update_transport(id):
+    mode_of_travel = request.form['transport_type']
+    mpg = request.form['transport_mpg']
+    purpose= Purpose(travel_purpose, id)
+    purpose_repo.update(purpose)
+    return redirect("/purposes")
 
+# # Delete Later if needed
 
-# Delete Later if needed
+# @purposes_blueprint.route("/purposes/delete/<id>", methods = ['POST'])
+# def delete_purpose(id):
+#     purpose_repo.delete(id)
+#     return redirect("/purposes")
