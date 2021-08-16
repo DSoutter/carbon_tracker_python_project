@@ -14,6 +14,9 @@ def transport_types():
 
 # New (add a new type screen)
 
+@transport_blueprint.route("/transport_types/new")
+def def_transport_type():
+    return render_template("transport_types/new.html")
 
 # Create (posting the new type to the list)
 
