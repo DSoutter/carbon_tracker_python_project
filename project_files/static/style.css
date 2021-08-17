@@ -6,11 +6,15 @@
     linear-gradient(135deg, rgba(10, 111, 151, 0.2) 50%, transparent 50%);
 background-size: 50px 50px;
 } */
-
+body > header > ul {
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .trips_flex {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     /* width: 50%; */
@@ -24,5 +28,5 @@ background-size: 50px 50px;
 .trips_flex >* {
     background-color: rgba(110, 219, 119, 0.582) ;
 
-    flex: 160px
+    /* flex: 1 1 60px */
 }
