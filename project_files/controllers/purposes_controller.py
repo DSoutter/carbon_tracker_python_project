@@ -1,4 +1,3 @@
-# from os import pipe
 from flask import Flask, request, redirect, render_template, Blueprint
 
 from models.purpose import Purpose

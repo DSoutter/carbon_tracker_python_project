@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>List of Trips Taken</h1>
-
+<div class = trips_flex>
 {% for trip in trips %}
 
 <section>
-    <p>Distance: {{trip.distance}} miles</p>
-    <p>Date: <a href="/trips/year/{{trip.date.year}}">{{trip.date.year}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}">{{trip.date.month}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}/{{trip.date.month}}">{{trip.date.day}}</a></p>
-    <p>Purpose: {{trip.purpose.travel_purpose}} </p> 
-    <p>Journey by: {{trip.transport_type.mode_of_travel}}</p>
+    <p class = dist_flex>Distance: {{trip.distance}} miles</p>
+    <p>Date: <a href="/trips/year/{{trip.date.year}}">{{trip.date.year}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}">{{trip.date.month}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}/{{trip.date.day}}">{{trip.date.day}}</a></p>
+    <p>Purpose: <a href="/trips/purpose/{{trip.purpose.id}}">{{trip.purpose.travel_purpose}}</a></p> 
+    <p>Journey by: <a href="/trips/mode/{{trip.transport_type.id}}">{{trip.transport_type.mode_of_travel}}</a></p>
     <p>Journey emissions: {{ trip.emissions()}}g CO<sub>2</sub>e</p>
     <a href="/trips/edit/{{trip.id}}">
         <input type="button" value="Edit">
@@ -20,4 +20,5 @@
 </section>
 
 {% endfor %}
+</div>
 {% endblock %}

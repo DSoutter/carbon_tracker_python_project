@@ -92,3 +92,15 @@ def trips_by_month(month, year):
 def trips_by_day(day, month, year):
     trips = trip_repo.select_all_by_day(day, month, year)
     return render_template("trips/index.html", trips = trips)
+
+# purposes list function:
+@trip_blueprint.route("/trips/purpose/<id>")
+def trips_purposes_by_id(id):
+    trips= trip_repo.select_all_by_purpose(id)
+    return render_template("trips/index.html", trips=trips)
+
+# journey by function:
+@trip_blueprint.route("/trips/mode/<id>")
+def trips_by_mode(id):
+    trips = trip_repo.select_all_by_mode(id)
+    return render_template("trips/index.html", trips = trips)

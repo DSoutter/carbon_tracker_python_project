@@ -117,10 +117,38 @@ def select_all_by_month(month, year):
     return trips
 
     # select by year
-def select_all_by_day(day):
+def select_all_by_day(day, month, year):
     trips = []
-    sql = "SELECT * FROM trips WHERE EXTRACT(day FROM date) = %s"
-    values = [day]
+    sql = "SELECT * FROM trips WHERE EXTRACT(day FROM date) = %s AND EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s"
+    values = [day, month, year]
+    results = run_sql(sql,values)
+
+    for row in results:
+        purpose = purpose_repo.select(row['purpose_id'])
+        transport_type = transport_repo.select(row['transport_type_id'])
+        trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
+        trips.append(trip)
+    return trips
+
+# select by purposes
+def select_all_by_purpose(id):
+    trips = []
+    sql = "SELECT * FROM trips WHERE purpose_id = %s"
+    values = [id]
+    results = run_sql(sql,values)
+
+    for row in results:
+        purpose = purpose_repo.select(row['purpose_id'])
+        transport_type = transport_repo.select(row['transport_type_id'])
+        trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
+        trips.append(trip)
+    return trips
+
+# select by purposes
+def select_all_by_mode(id):
+    trips = []
+    sql = "SELECT * FROM trips WHERE transport_type_id = %s"
+    values = [id]
     results = run_sql(sql,values)
 
     for row in results:
