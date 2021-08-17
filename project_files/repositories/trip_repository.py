@@ -82,13 +82,3 @@ def update_carbon():
         trip=Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
         update(trip)
 
-# def select_all():
-#     trips = []
-#     sql = "SELECT * FROM trips ORDER BY date DESC"
-#     results = run_sql(sql)
-#     for row in results:
-#         purpose = purpose_repo.select(row['purpose_id'])
-#         transport_type = transport_repo.select(row['transport_type_id'])
-#         trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
-#         trips.append(trip)
-#     return trips
