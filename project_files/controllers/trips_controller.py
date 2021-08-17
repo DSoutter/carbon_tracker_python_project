@@ -78,3 +78,17 @@ def delete_trip(id):
 def trips_by_year(year):
     trips = trip_repo.select_all_by_year(year)
     return render_template("trips/index.html", trips = trips)
+
+# Month function:
+
+@trip_blueprint.route("/trips/<year>/<month>")
+def trips_by_month(month, year):
+    trips = trip_repo.select_all_by_month(month, year)
+    return render_template("trips/index.html", trips = trips)
+
+# Day function: 
+
+@trip_blueprint.route("/trips/<year>/<month>/<day>")
+def trips_by_day(day, month, year):
+    trips = trip_repo.select_all_by_day(day, month, year)
+    return render_template("trips/index.html", trips = trips)

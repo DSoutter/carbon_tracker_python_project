@@ -101,3 +101,31 @@ def select_all_by_year(year):
         trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
         trips.append(trip)
     return trips
+
+    # select by month
+def select_all_by_month(month, year):
+    trips = []
+    sql = "SELECT * FROM trips WHERE EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s"
+    values = [month, year]
+    results = run_sql(sql,values)
+
+    for row in results:
+        purpose = purpose_repo.select(row['purpose_id'])
+        transport_type = transport_repo.select(row['transport_type_id'])
+        trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
+        trips.append(trip)
+    return trips
+
+    # select by year
+def select_all_by_day(day):
+    trips = []
+    sql = "SELECT * FROM trips WHERE EXTRACT(day FROM date) = %s"
+    values = [day]
+    results = run_sql(sql,values)
+
+    for row in results:
+        purpose = purpose_repo.select(row['purpose_id'])
+        transport_type = transport_repo.select(row['transport_type_id'])
+        trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
+        trips.append(trip)
+    return trips

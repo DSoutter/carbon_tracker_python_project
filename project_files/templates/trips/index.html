@@ -6,7 +6,7 @@
 
 <section>
     <p>Distance: {{trip.distance}} miles</p>
-    <p>Date: <a href="/trips/year/{{trip.date.year}}">{{trip.date.year}}</a>/<a href="/trips/month/{{trip.date.month}}">{{trip.date.month}}</a>/{{trip.date.day}}</p>
+    <p>Date: <a href="/trips/year/{{trip.date.year}}">{{trip.date.year}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}">{{trip.date.month}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}/{{trip.date.month}}">{{trip.date.day}}</a></p>
     <p>Purpose: {{trip.purpose.travel_purpose}} </p> 
     <p>Journey by: {{trip.transport_type.mode_of_travel}}</p>
     <p>Journey emissions: {{ trip.emissions()}}g CO<sub>2</sub>e</p>
