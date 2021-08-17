@@ -1,4 +1,4 @@
-from pdb import run
+from pdb import run, set_trace
 
 from psycopg2.extensions import SQL_IN
 from db.run_sql import run_sql
@@ -88,3 +88,24 @@ def update_carbon():
         trip=Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
         update(trip)
 
+# select by year
+def select_all_by_year(year):
+    sql = "SELECT * FROM trips WHERE EXTRACT(year FROM date) = '%s'"
+    values = [year]
+    result = run_sql(sql,values)[0]
+    
+    if result is not None:
+        purpose = purpose_repo.select(result['purpose_id'])
+        transport_type = transport_repo.select(result['transport_type_id'])
+        trip = Trip(result['distance'], result['date'], purpose, transport_type, result['id'])
+    return trip
+# def select(id):
+#     sql = "SELECT * FROM trips WHERE id = %s"
+#     values = [id]
+#     result = run_sql(sql, values)[0]
+
+#     if result is not None:
+#         purpose = purpose_repo.select(result['purpose_id'])
+#         transport_type = transport_repo.select(result['transport_type_id'])
+#         trip = Trip(result['distance'], result['date'], purpose, transport_type, result['id'])
+#     return trip
