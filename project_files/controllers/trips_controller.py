@@ -61,7 +61,7 @@ def update_trip(id):
     transport_type_id = request.form["transport_type_id"]
     purpose = purpose_repo.select(purpose_id)
     transport_type = transport_repo.select(transport_type_id)
-    trip= Trip(distance, date, purpose, transport_type, id)
+    trip= Trip(int(distance), date, purpose, transport_type, id)
     trip_repo.update(trip)
     return redirect("/trips")
 
