@@ -72,7 +72,7 @@ def count():
     sql = "SELECT COUNT(id) FROM TRIPS"
     return run_sql(sql)[0][0]
 
-# update all carbons:
+# update all carbon:
 def update_carbon():
     sql = "UPDATE trips SET carbon = %s"
     values = [trip.emissions()]

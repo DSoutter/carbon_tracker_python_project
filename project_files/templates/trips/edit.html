@@ -16,7 +16,7 @@
         <label for="purpose">Trip purpose: </label>
         <select name="purpose_id" id="purpose">
             {% for purpose in purposes %}
-            <option value="{{trip.purpose}}" {% if purpose.id == trip.purpose.id %} selected {% endif %}>
+            <option value="{{trip.purpose.id}}" {% if purpose.id == trip.purpose.id %} selected {% endif %}>
                 {{purpose.travel_purpose}}
             </option>
             {% endfor %}
@@ -24,9 +24,9 @@
     </div>
     <div>
         <label for="transport_type">Choose transport type: </label>
-        <select name="transport_id" id="transport_type">
+        <select name="transport_type_id" id="transport_type">
             {% for transport_type in transport_types %}
-            <option value="{{trip.transport_type}}" {% if transport_type.id == trip.transport_type.id %} selected {% endif %}>
+            <option value="{{trip.transport_type.id}}" {% if transport_type.id == trip.transport_type.id %} selected {% endif %}>
                 {{transport_type.mode_of_travel}}
             </option>
             {% endfor %}

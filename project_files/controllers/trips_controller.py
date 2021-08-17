@@ -57,22 +57,12 @@ def update_trip(id):
     distance = request.form['distance']
     date = request.form['date']
     purpose_id = request.form["purpose_id"]
-    transport_type_id = request.form["transport_id"]
+    transport_type_id = request.form["transport_type_id"]
     purpose = purpose_repo.select(purpose_id)
     transport_type = transport_repo.select(transport_type_id)
     trip= Trip(distance, date, purpose, transport_type, id)
     trip_repo.update(trip)
     return redirect("/trips")
-
-# @bitings_blueprint.route("/bitings/<id>", methods=["POST"])
-# def update_biting(id):
-#     human_id = request.form["human_id"]
-#     zombie_id = request.form["zombie_id"]
-#     human = human_repository.select(human_id)
-#     zombie = zombie_repository.select(zombie_id)
-#     biting = Biting(human, zombie, id)
-#     biting_repository.update(biting)
-#     return redirect("/bitings")
 
 # Delete Later if needed
 
