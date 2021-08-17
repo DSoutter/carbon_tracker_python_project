@@ -75,8 +75,6 @@ def delete_trip(id):
 # Year function:
 
 @trip_blueprint.route("/trips/year/<year>")
-
-@trip_blueprint.route("/trips")
 def trips_by_year(year):
     trips = trip_repo.select_all_by_year(year)
-    return render_template("trips/index_year.html", trips = trips)
+    return render_template("trips/index.html", trips = trips)

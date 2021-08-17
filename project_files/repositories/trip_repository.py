@@ -90,22 +90,14 @@ def update_carbon():
 
 # select by year
 def select_all_by_year(year):
-    sql = "SELECT * FROM trips WHERE EXTRACT(year FROM date) = '%s'"
+    trips = []
+    sql = "SELECT * FROM trips WHERE EXTRACT(year FROM date) = %s"
     values = [year]
-    result = run_sql(sql,values)[0]
-    
-    if result is not None:
-        purpose = purpose_repo.select(result['purpose_id'])
-        transport_type = transport_repo.select(result['transport_type_id'])
-        trip = Trip(result['distance'], result['date'], purpose, transport_type, result['id'])
-    return trip
-# def select(id):
-#     sql = "SELECT * FROM trips WHERE id = %s"
-#     values = [id]
-#     result = run_sql(sql, values)[0]
+    results = run_sql(sql,values)
 
-#     if result is not None:
-#         purpose = purpose_repo.select(result['purpose_id'])
-#         transport_type = transport_repo.select(result['transport_type_id'])
-#         trip = Trip(result['distance'], result['date'], purpose, transport_type, result['id'])
-#     return trip
+    for row in results:
+        purpose = purpose_repo.select(row['purpose_id'])
+        transport_type = transport_repo.select(row['transport_type_id'])
+        trip = Trip(row['distance'], row['date'], purpose, transport_type, row['id'])
+        trips.append(trip)
+    return trips
