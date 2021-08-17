@@ -5,8 +5,8 @@
 {% for transport in transport_types %}
 
 <section>
-    <p>{{transport.mode_of_travel}}</p>
-    <p>{{transport.emissions_pm()}}</p>
+    <p>Mode of Travel: {{transport.mode_of_travel}}</p>
+    <p>Emissions: {{transport.emissions_pm()}}g CO<sub>2</sub>e per mile</p>
     <a href="/transport_types/edit/{{transport.id}}">
         <input type="button" value="Edit">
     </a>        

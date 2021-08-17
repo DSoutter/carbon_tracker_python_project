@@ -66,7 +66,13 @@ def update(trip):
 
 def total():
     sql = "SELECT SUM(carbon) FROM trips" 
-    return run_sql(sql)[0][0]
+    total_carbon_emissions_base = run_sql(sql)[0][0]
+    total_carbon_emissions =  str(total_carbon_emissions_base) + "g"
+    if total_carbon_emissions_base > 2000000:
+        total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,2)) + "t"
+    elif total_carbon_emissions_base > 5000:
+        total_carbon_emissions = str(round(total_carbon_emissions_base/1000,2)) + "kg"
+    return total_carbon_emissions
 
 def count():
     sql = "SELECT COUNT(id) FROM TRIPS"

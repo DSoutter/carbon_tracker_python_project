@@ -50,6 +50,7 @@ def edit_trip(id):
     transport_types =transport_repo.select_all() 
     trip = trip_repo.select(id)
     return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types)
+
 # Update Later if needed
 
 @trip_blueprint.route("/trips/<id>", methods=['POST'])
