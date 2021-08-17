@@ -46,7 +46,7 @@ def update_transport(id):
     mpg = request.form['transport_mpg']
     transport= Transport(mode_of_travel, int(mpg), id)
     transport_repo.update(transport)
-    # trip_repo.update_carbon()
+    trip_repo.update_carbon()
     return redirect("/transport_types")
 
 # # Delete Later if needed
