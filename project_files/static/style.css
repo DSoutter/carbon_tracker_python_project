@@ -1,15 +1,19 @@
-/* html {
-    background-color: white;
-    background-image:
-    linear-gradient(rgb(138, 197, 138), rgb(138, 218, 114), transparent),
-    linear-gradient(45deg, rgba(0, 0, 0) 80%, transparent 50%),
-    linear-gradient(135deg, rgba(10, 111, 151, 0.2) 50%, transparent 50%);
-background-size: 50px 50px;
-} */
-body > header > ul {
+.centre-text {
+    font-family:  'Lucida Sans', Arial, sans-serif;
+    background:
+      linear-gradient(115deg, transparent 85%, rgb(153, 221, 153)) 0 0,
+      linear-gradient(245deg, transparent 85%, rgb(153, 221, 153)) 0 0,
+      linear-gradient(115deg, transparent 85%, rgb(97, 180, 97)) 10px -20px,
+      linear-gradient(245deg, transparent 85%, rgb(97, 180, 97)) 10px -20px,
+      rgb(255, 255, 255);
+    background-size: 20px 40px;
+}
+body {
+    /* min-height: 100%; */
+}
+body > header {
     display: flex ;
-    flex-direction: row;
-    justify-content: space-around;
+
 }
 .trips_flex {
     display: flex;
@@ -21,12 +25,23 @@ body > header > ul {
     height: 300px;
     padding: 10px;
     border: 10px;
-    /* border-color: black; */
-    /* margin: 0%; */
+    /* margin-left: 10%;
+    margin-right: 10%; */
 }
 
 .trips_flex >* {
-    background-color: rgba(110, 219, 119, 0.582) ;
+    background-color: rgba(110, 219, 119, 0.75) ;
 
     /* flex: 1 1 60px */
+}
+
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(110, 219, 119, 0.75);
+    color: white;
+    text-align: center;
 }
