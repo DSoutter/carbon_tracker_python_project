@@ -7,11 +7,11 @@
     <div>
         <label for="distance">Distance travelled: </label>
         <input type="number" name="distance" id="distance" min="0" value="{{trip.distance}}">
-    </div>
+    </div><br>
     <div>
         <label for="date">Date of trip: </label>
         <input type="date" name="date" id="date" value = "{{trip.date}}">
-    </div>
+    </div><br>
     <div>
         <label for="purpose">Trip purpose: </label>
         <select name="purpose_id" id="purpose">
@@ -21,7 +21,7 @@
             </option>
             {% endfor %}
         </select>
-    </div>
+    </div><br>
     <div>
         <label for="transport_type">Choose transport type: </label>
         <select name="transport_type_id" id="transport_type">
@@ -31,7 +31,7 @@
             </option>
             {% endfor %}
         </select>
-    </div>
+    </div><br>
     <div><input type="submit"></div>
 </form>
 </div>
