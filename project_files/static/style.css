@@ -13,9 +13,13 @@ html {
 header {
     background-color: white;
 }
-#emissions-statement {
+#emissions-statement-good {
     background-color:  rgb(97, 180, 97);
     color: rgb(119, 119, 119);
+}
+#emissions-statement-bad {
+    background-color:  rgb(180, 97, 97);
+    color: rgb(255, 255, 255);
 }
 /* .centre-text {
     font-family:  'Lucida Sans', Arial, sans-serif;

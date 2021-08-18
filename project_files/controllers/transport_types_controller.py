@@ -14,9 +14,10 @@ transport_blueprint = Blueprint("transport_types", __name__)
 def transport_types():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     transport_types = transport_repo.select_all()
-    return render_template("transport_types/index.html", transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("transport_types/index.html", transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # New (add a new type screen)
 
@@ -24,8 +25,9 @@ def transport_types():
 def transport_type():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
-    return render_template("transport_types/new.html", total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("transport_types/new.html", total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Create (posting the new type to the list)
 
@@ -43,9 +45,10 @@ def create_transport_type():
 def edit_transport_type(id):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     transport_type = transport_repo.select(id)
-    return render_template('transport_types/edit.html', transport_type=transport_type, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template('transport_types/edit.html', transport_type=transport_type, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Update Later if needed
 

@@ -18,9 +18,10 @@ trip_blueprint = Blueprint("trips", __name__)
 def trips():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips = trip_repo.select_all()
-    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # New (add a new trip screen)
 
@@ -28,10 +29,11 @@ def trips():
 def new_trip():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     purposes = purpose_repo.select_all()
     transport_types = transport_repo.select_all()
-    return render_template("trips/new.html", purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/new.html", purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 
 # Create (posting the new trip to the list)
@@ -54,11 +56,12 @@ def create_trip():
 def edit_trip(id):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     purposes = purpose_repo.select_all()
     transport_types =transport_repo.select_all() 
     trip = trip_repo.select(id)
-    return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Update Later if needed
 
@@ -87,9 +90,10 @@ def delete_trip(id):
 def trips_by_year(year):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_year(year)
-    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Month function:
 
@@ -97,9 +101,10 @@ def trips_by_year(year):
 def trips_by_month(month, year):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_month(month, year)
-    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Day function: 
 
@@ -107,24 +112,27 @@ def trips_by_month(month, year):
 def trips_by_day(day, month, year):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_day(day, month, year)
-    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # purposes list function:
 @trip_blueprint.route("/trips/purpose/<id>")
 def trips_purposes_by_id(id):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips= trip_repo.select_all_by_purpose(id)
-    return render_template("trips/index.html", trips=trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips=trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # journey by function:
 @trip_blueprint.route("/trips/mode/<id>")
 def trips_by_mode(id):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_mode(id)
-    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)

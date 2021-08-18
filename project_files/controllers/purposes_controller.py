@@ -12,9 +12,10 @@ purposes_blueprint = Blueprint("purposes", __name__)
 def purposes():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()    
     purposes = purpose_repo.select_all()
-    return render_template("purposes/index.html", purposes = purposes, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("purposes/index.html", purposes = purposes, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # New (add a new purpose screen)
 
@@ -22,8 +23,9 @@ def purposes():
 def new_purpose():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()    
-    return render_template("purposes/new.html", total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template("purposes/new.html", total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Create (posting the new purpose to the list)
 
@@ -41,9 +43,10 @@ def create_purpose():
 def edit_purpose(id):
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
+    total_carbon_emissions_base = trip_repo.total()[2]
     count_of_trips = trip_repo.count()
     purpose = purpose_repo.select(id)
-    return render_template('purposes/edit.html', purpose=purpose, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    return render_template('purposes/edit.html', purpose=purpose, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 # Update Later if needed
 
