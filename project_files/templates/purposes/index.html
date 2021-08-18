@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 <h2 class="title-text">Travel Purposes</h2>
-<div class = trips_flex>
+<div class = views_flex>
 {% for purpose in purposes %}
 
 <section>
     <p>{{purpose.travel_purpose}}</p>
-    <a href="/purposes/edit/{{purpose.id}}">
+    <p><a href="/purposes/edit/{{purpose.id}}">
         <input type="button" value="Edit">
     </a>        
     </form>
     <form action="/purposes/delete/{{purpose.id}}" method="POST">
         <input type="submit" value="Delete">
-    </form>
+    </form></p>
 </section>
 
 {% endfor %}</div>

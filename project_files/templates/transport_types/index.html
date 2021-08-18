@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <h2 class="title-text">Different Modes of Travel</h2>
-
+<div class = transport_types_flex>
 {% for transport in transport_types %}
 
 <section>
     <p>Mode of Travel: {{transport.mode_of_travel}}</p>
     <p>Emissions: {{transport.emissions_pm()}}g CO<sub>2</sub>e per mile</p>
-    <a href="/transport_types/edit/{{transport.id}}">
+    <p><a href="/transport_types/edit/{{transport.id}}">
         <input type="button" value="Edit">
     </a>        
     </form>
     <form action="/transport_types/delete/{{transport.id}}" method="POST">
         <input type="submit" value="Delete">
-    </form>
-    <!-- <p>{{transport.mpg}}</p> -->
+    </form></p>
 </section>
 
 {% endfor %}
+</div>
 {% endblock %}

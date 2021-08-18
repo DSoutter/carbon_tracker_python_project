@@ -60,7 +60,7 @@ body > header > ul{
 .menu {
     padding-top: 10px;
 }
-.trips_flex {
+.views_flex{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -74,7 +74,7 @@ body > header > ul{
     margin-right: 5%; */
 }
 
-.trips_flex >* {
+.views_flex >* {
     background-color: rgba(161, 204, 165, 0.9) ;
     border-radius: 15px;
     width: 200px;
