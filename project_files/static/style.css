@@ -99,6 +99,7 @@ body > header > ul{
     color: white;
     text-align: center;
     color: rgba(119, 42, 6, 0.80);
+    border-radius: 15px;
 
 }
 a {
