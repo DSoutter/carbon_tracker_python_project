@@ -17,14 +17,10 @@ app.register_blueprint(trip_blueprint)
 
 @app.route("/")
 def main():
-    total_carbon_emissions = trip_repo.total()
-    # total_emissions_kg = total_carbon_emissions_base/1000
-    # total_emissions_t = total_carbon_emissions_base/1000000
-    # total_carbon_emissions = str(total_carbon_emissions_base) + "g"
-
-
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
     count_of_trips = trip_repo.count()
-    return render_template('index.html', total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips)
+    return render_template('index.html', total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 if __name__ == '__main__':
     app.run()

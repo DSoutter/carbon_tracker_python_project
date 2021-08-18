@@ -68,11 +68,14 @@ def total():
     sql = "SELECT SUM(carbon) FROM trips" 
     total_carbon_emissions_base = run_sql(sql)[0][0]
     total_carbon_emissions =  str(total_carbon_emissions_base) + "g"
-    if total_carbon_emissions_base > 2000000:
+    amount_of_trees = total_carbon_emissions_base / 5
+    if total_carbon_emissions_base > 10000000:
+        total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,1)) + "t"
+    elif total_carbon_emissions_base > 2000000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,2)) + "t"
     elif total_carbon_emissions_base > 5000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000,2)) + "kg"
-    return total_carbon_emissions
+    return total_carbon_emissions, amount_of_trees
 
 def count():
     sql = "SELECT COUNT(id) FROM TRIPS"

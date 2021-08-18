@@ -32,8 +32,8 @@ body > header {
 }
 .trips_flex {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     /* width: 50%; */
@@ -45,6 +45,7 @@ body > header {
 }
 
 .trips_flex >* {
+    flex-wrap: wrap;
     background-color: rgba(110, 219, 119, 0.75) ;
 
     /* flex: 1 1 60px */
