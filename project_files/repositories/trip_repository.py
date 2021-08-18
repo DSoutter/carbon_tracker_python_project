@@ -70,7 +70,7 @@ def total():
     total_carbon_emissions =  str(total_carbon_emissions_base) + "g"
     amount_of_trees = round(total_carbon_emissions_base / 10000)
     if total_carbon_emissions_base > 10000000:
-        total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,1)) + "t"
+        total_carbon_emissions = str(round(total_carbon_emissions_base/1000000)) + "t"
     elif total_carbon_emissions_base > 2000000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,2)) + "t"
     elif total_carbon_emissions_base > 5000:
