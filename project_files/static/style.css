@@ -7,6 +7,7 @@ html {
       linear-gradient(245deg, transparent 85%, rgb(97, 180, 97)) 15px -30px,
       rgb(255, 255, 255);
     background-size: 30px 60px;
+    height: 100%;
 }
 
 header {
@@ -23,6 +24,7 @@ header {
       rgb(255, 255, 255);
     background-size: 30px 60px;
 } */
+
 body > header {
     color: rgb(119, 119, 119);
     background-color:  rgba(110, 219, 119, 0.75) ;
@@ -41,6 +43,7 @@ body > header > ul{
     list-style-type: none;
     padding-right: 40px;
 }
+
 .menu {
     padding-top: 10px;
 }
@@ -50,27 +53,33 @@ body > header > ul{
     flex-direction: row;
     /* align-items: center; */
     justify-content: space-around;
-    height: 300px;
+    /* height: 300px; */
     padding: 10px;
     border: 10px;
-    
 
     /* margin-left: 5%;
     margin-right: 5%; */
 }
 
 .trips_flex >* {
-    background-color: rgba(110, 219, 119, 0.75) ;
+    background-color: rgba(194, 194, 194, 0.75) ;
     width: 200px;
     margin: 5%;
     padding: 15px
+
+}
+
+.centre-text {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    height: auto;
 }
 
 #footer {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    left: 10px;
+    right: 10px;
+    bottom: 0px;
     background-color: rgba(110, 219, 119);
     color: white;
     text-align: center;
