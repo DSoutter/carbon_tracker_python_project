@@ -68,7 +68,7 @@ def total():
     sql = "SELECT SUM(carbon) FROM trips" 
     total_carbon_emissions_base = run_sql(sql)[0][0]
     total_carbon_emissions =  str(total_carbon_emissions_base) + "g"
-    amount_of_trees = total_carbon_emissions_base / 5
+    amount_of_trees = round(total_carbon_emissions_base / 10000)
     if total_carbon_emissions_base > 10000000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,1)) + "t"
     elif total_carbon_emissions_base > 2000000:
@@ -76,6 +76,8 @@ def total():
     elif total_carbon_emissions_base > 5000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000,2)) + "kg"
     return total_carbon_emissions, amount_of_trees
+
+# Tree offset figure = 10kg/year https://granthaminstitute.com/2015/09/02/how-much-co2-can-trees-take-up/
 
 def count():
     sql = "SELECT COUNT(id) FROM TRIPS"
