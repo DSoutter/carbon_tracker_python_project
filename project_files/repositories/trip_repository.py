@@ -96,7 +96,7 @@ def update_carbon():
 # select by year
 def select_all_by_year(year):
     trips = []
-    sql = "SELECT * FROM trips WHERE EXTRACT(year FROM date) = %s"
+    sql = "SELECT * FROM trips WHERE EXTRACT(year FROM date) = %s ORDER BY date DESC"
     values = [year]
     results = run_sql(sql,values)
 
@@ -110,7 +110,7 @@ def select_all_by_year(year):
     # select by month
 def select_all_by_month(month, year):
     trips = []
-    sql = "SELECT * FROM trips WHERE EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s"
+    sql = "SELECT * FROM trips WHERE EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s ORDER BY date DESC"
     values = [month, year]
     results = run_sql(sql,values)
 
@@ -124,7 +124,7 @@ def select_all_by_month(month, year):
     # select by year
 def select_all_by_day(day, month, year):
     trips = []
-    sql = "SELECT * FROM trips WHERE EXTRACT(day FROM date) = %s AND EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s"
+    sql = "SELECT * FROM trips WHERE EXTRACT(day FROM date) = %s AND EXTRACT(month FROM date) = %s AND EXTRACT(year FROM date) = %s ORDER BY date DESC"
     values = [day, month, year]
     results = run_sql(sql,values)
 
@@ -138,7 +138,7 @@ def select_all_by_day(day, month, year):
 # select by purposes
 def select_all_by_purpose(id):
     trips = []
-    sql = "SELECT * FROM trips WHERE purpose_id = %s"
+    sql = "SELECT * FROM trips WHERE purpose_id = %s ORDER BY date DESC"
     values = [id]
     results = run_sql(sql,values)
 
@@ -152,7 +152,7 @@ def select_all_by_purpose(id):
 # select by purposes
 def select_all_by_mode(id):
     trips = []
-    sql = "SELECT * FROM trips WHERE transport_type_id = %s"
+    sql = "SELECT * FROM trips WHERE transport_type_id = %s ORDER BY date DESC"
     values = [id]
     results = run_sql(sql,values)
 
