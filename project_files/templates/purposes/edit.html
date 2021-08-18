@@ -2,7 +2,7 @@
 {% block content %}
 
 <h2 class="title-text">Modify Travel Purpose</h2>
-
+<div class = views-flex>
 <form action="/purposes/{{purpose.id}}", method='POST'>
     <div>
         <label for="travel_purpose">Travel Purpose: </label>
@@ -10,5 +10,5 @@
         <input type="submit">
     </div>
 </form>
-
+</div>
 {% endblock %}

@@ -2,16 +2,19 @@
 {% block content %}
 
 <h2 class="title-text">Add a new Travel Type</h2>
-
+<div class = views-flex>
 <form action="/transport_types" method = "POST">
     <div>
-        <label for="transport_type">Input a new vehicle, include fuel type: </label>
+        <label for="transport_type">Input a new vehicle, include fuel type: </label><br>
         <input type="text" id="transport_type" name="transport_type">
-        <label for="transport_mpg">Input the vehicles average MPG: </label>
-        <input type="int" id="transport_mpg" name="transport_mpg">
-        <input type="submit">
+        <div>
+            <label for="transport_mpg">Input the vehicles average MPG: </label><br>
+            <input type="int" id="transport_mpg" name="transport_mpg">
+            <div></div>
+            <input type="submit">
+        </div>
     </div>
 
 </form>
-
+</div>
 {% endblock %}

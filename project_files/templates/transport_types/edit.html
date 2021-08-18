@@ -2,7 +2,7 @@
 {% block content %}
 
 <h2 class="title-text">Modify Travel Type</h2>
-
+<div class = views-flex>
 <form action="/transport_types/{{transport_type.id}}", method='POST'>
     <div>
         <label for="transport_type">Input a new vehicle, include fuel type: </label>
@@ -12,5 +12,5 @@
         <input type="submit">
     </div>
 </form>
-
+</div>
 {% endblock %}

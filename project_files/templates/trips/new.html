@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Add a new Trip</h2>
-
+<h2 class="title-text">Add a new Trip</h2>
+<div class = views-flex>
 <form action="/trips" method="POST">
     <div>
         <label for="distance">Distance travelled: </label>
@@ -35,5 +35,5 @@
     </div>
     <div><input type="submit"></div>
 </form>
-
+</div>
 {% endblock %}
