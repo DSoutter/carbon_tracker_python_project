@@ -10,16 +10,20 @@ purposes_blueprint = Blueprint("purposes", __name__)
 
 @purposes_blueprint.route("/purposes")
 def purposes():
-    total_carbon_emissions = trip_repo.total()
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()    
     purposes = purpose_repo.select_all()
-    return render_template("purposes/index.html", purposes = purposes, total_carbon_emissions= total_carbon_emissions)
+    return render_template("purposes/index.html", purposes = purposes, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # New (add a new purpose screen)
 
 @purposes_blueprint.route("/purposes/new")
 def new_purpose():
-    total_carbon_emissions = trip_repo.total()
-    return render_template("purposes/new.html", total_carbon_emissions= total_carbon_emissions)
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()    
+    return render_template("purposes/new.html", total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # Create (posting the new purpose to the list)
 
@@ -35,9 +39,11 @@ def create_purpose():
 
 @purposes_blueprint.route("/purposes/edit/<id>")
 def edit_purpose(id):
-    total_carbon_emissions = trip_repo.total()
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     purpose = purpose_repo.select(id)
-    return render_template('purposes/edit.html', purpose=purpose, total_carbon_emissions= total_carbon_emissions)
+    return render_template('purposes/edit.html', purpose=purpose, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # Update Later if needed
 
