@@ -20,7 +20,8 @@ def main():
     total_carbon_emissions = trip_repo.total()[0]
     amount_of_trees = trip_repo.total()[1]
     count_of_trips = trip_repo.count()
-    return render_template('index.html', total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
+    total_carbon_emissions_base = trip_repo.total()[2]
+    return render_template('index.html', total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees, total_carbon_emissions_base=total_carbon_emissions_base)
 
 if __name__ == '__main__':
     app.run()

@@ -75,7 +75,7 @@ def total():
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000000,2)) + "t"
     elif total_carbon_emissions_base > 5000:
         total_carbon_emissions = str(round(total_carbon_emissions_base/1000,2)) + "kg"
-    return total_carbon_emissions, amount_of_trees
+    return total_carbon_emissions, amount_of_trees, total_carbon_emissions_base
 
 # Tree offset figure = 10kg/year https://granthaminstitute.com/2015/09/02/how-much-co2-can-trees-take-up/
 
