@@ -1,13 +1,28 @@
-.centre-text {
+html {
     font-family:  'Lucida Sans', Arial, sans-serif;
     background:
       linear-gradient(115deg, transparent 85%, rgb(153, 221, 153)) 0 0,
       linear-gradient(245deg, transparent 85%, rgb(153, 221, 153)) 0 0,
-      linear-gradient(115deg, transparent 85%, rgb(97, 180, 97)) 10px -20px,
-      linear-gradient(245deg, transparent 85%, rgb(97, 180, 97)) 10px -20px,
+      linear-gradient(115deg, transparent 85%, rgb(97, 180, 97)) 15px -30px,
+      linear-gradient(245deg, transparent 85%, rgb(97, 180, 97)) 15px -30px,
       rgb(255, 255, 255);
-    background-size: 20px 40px;
+    background-size: 30px 60px;
 }
+
+header {
+    background-color: white;
+}
+
+/* .centre-text {
+    font-family:  'Lucida Sans', Arial, sans-serif;
+    background:
+      linear-gradient(115deg, transparent 85%, rgb(153, 221, 153)) 0 0,
+      linear-gradient(245deg, transparent 85%, rgb(153, 221, 153)) 0 0,
+      linear-gradient(115deg, transparent 85%, rgb(97, 180, 97)) 15px -30px,
+      linear-gradient(245deg, transparent 85%, rgb(97, 180, 97)) 15px -30px,
+      rgb(255, 255, 255);
+    background-size: 30px 60px;
+} */
 body {
     /* min-height: 100%; */
 }
