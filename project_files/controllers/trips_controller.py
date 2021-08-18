@@ -16,16 +16,22 @@ trip_blueprint = Blueprint("trips", __name__)
 
 @trip_blueprint.route("/trips")
 def trips():
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips = trip_repo.select_all()
-    return render_template("trips/index.html", trips = trips)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # New (add a new trip screen)
 
 @trip_blueprint.route("/trips/new")
 def new_trip():
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     purposes = purpose_repo.select_all()
     transport_types = transport_repo.select_all()
-    return render_template("trips/new.html", purposes = purposes, transport_types = transport_types)
+    return render_template("trips/new.html", purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 
 # Create (posting the new trip to the list)
@@ -46,10 +52,13 @@ def create_trip():
 
 @trip_blueprint.route("/trips/edit/<id>")
 def edit_trip(id):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     purposes = purpose_repo.select_all()
     transport_types =transport_repo.select_all() 
     trip = trip_repo.select(id)
-    return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types)
+    return render_template('trips/edit.html', trip = trip, purposes = purposes, transport_types = transport_types, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # Update Later if needed
 
@@ -76,31 +85,46 @@ def delete_trip(id):
 
 @trip_blueprint.route("/trips/year/<year>")
 def trips_by_year(year):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_year(year)
-    return render_template("trips/index.html", trips = trips)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # Month function:
 
 @trip_blueprint.route("/trips/<year>/<month>")
 def trips_by_month(month, year):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_month(month, year)
-    return render_template("trips/index.html", trips = trips)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # Day function: 
 
 @trip_blueprint.route("/trips/<year>/<month>/<day>")
 def trips_by_day(day, month, year):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_day(day, month, year)
-    return render_template("trips/index.html", trips = trips)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # purposes list function:
 @trip_blueprint.route("/trips/purpose/<id>")
 def trips_purposes_by_id(id):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips= trip_repo.select_all_by_purpose(id)
-    return render_template("trips/index.html", trips=trips)
+    return render_template("trips/index.html", trips=trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
 
 # journey by function:
 @trip_blueprint.route("/trips/mode/<id>")
 def trips_by_mode(id):
+    total_carbon_emissions = trip_repo.total()[0]
+    amount_of_trees = trip_repo.total()[1]
+    count_of_trips = trip_repo.count()
     trips = trip_repo.select_all_by_mode(id)
-    return render_template("trips/index.html", trips = trips)
+    return render_template("trips/index.html", trips = trips, total_carbon_emissions= total_carbon_emissions, count_of_trips=count_of_trips, amount_of_trees=amount_of_trees)
