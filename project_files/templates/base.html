@@ -24,7 +24,7 @@
             <li><a href="/transport_types/new">Add new Transport Type</a></li>
         </ul>
     </header>
-    {% if total_carbon_emissions_base > 1000000 %} 
+    {% if total_carbon_emissions_base < 1000000 %} 
     <h2 id = "emissions-statement-good">You have emitted
         {{total_carbon_emissions}} CO<sub>2</sub>e over {{count_of_trips}} trips. This would take {{amount_of_trees}} UK native broadleaf trees one year to offset.</h2>
          {% else %}
