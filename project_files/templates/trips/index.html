@@ -9,7 +9,7 @@
         <p class = dist_flex></p>Distance: {{trip.distance}} miles</p>
         <p>Date: <a href="/trips/year/{{trip.date.year}}">{{trip.date.year}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}">{{trip.date.month}}</a>/<a href="/trips/{{trip.date.year}}/{{trip.date.month}}/{{trip.date.day}}">{{trip.date.day}}</a></p>
         <p>Purpose: <a href="/trips/purpose/{{trip.purpose.id}}">{{trip.purpose.travel_purpose}}</a></p> 
-        <p>Carbon emitted: {{ trip.emissions()}}g CO<sub>2</sub>e</p>
+        <p>Carbon emitted: {{ trip.emissions()/1000}}kg CO<sub>2</sub>e</p>
         <p><a href="/trips/edit/{{trip.id}}">
             <input type="button" value="Edit">
         </a>        

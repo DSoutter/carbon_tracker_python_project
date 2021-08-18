@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h2 class="title-text">Travel Purposes</h2>
+<div class = trips_flex>
 {% for purpose in purposes %}
 
 <section>
@@ -14,5 +15,5 @@
     </form>
 </section>
 
-{% endfor %}
+{% endfor %}</div>
 {% endblock %}
