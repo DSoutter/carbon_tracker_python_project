@@ -26,10 +26,12 @@ header {
 body {
     /* min-height: 100%; */
 }
-body > header {
+body > header > ul{
     display: flex ;
+    justify-content: space-around;
 
 }
+
 .trips_flex {
     display: flex;
     /* flex-wrap: wrap; */
