@@ -47,6 +47,7 @@ body > header {
 
 body > header > h1 {
     position: absolute;
+    top: 40px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -64,14 +65,9 @@ body > header > ul{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* align-items: center; */
     justify-content: space-around;
-    /* height: 300px; */
     padding: 10px;
     border: 10px;
-
-    /* margin-left: 5%;
-    margin-right: 5%; */
 }
 
 .views-flex >* {

@@ -6,7 +6,6 @@ from db.run_sql import run_sql
 from models.transport import Transport
 
 # save
-# why do I need int of the method????
 def save(transport):
     sql = "INSERT INTO transport_types (mode_of_travel, carbon_per_mile, mpg) VALUES (%s, %s, %s) RETURNING *"
     values = [transport.mode_of_travel, int(transport.emissions_pm()), transport.mpg]
@@ -22,7 +21,6 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         transport = Transport(row['mode_of_travel'], row['mpg'], row['id'])
-        # carbon_per_mile = transport.emissions_pm()
         transport_types.append(transport)
     return transport_types
 
