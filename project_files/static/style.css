@@ -26,19 +26,19 @@ header {
 body > header {
     color: rgb(119, 119, 119);
     background-color:  rgba(110, 219, 119, 0.75) ;
-}
-body > header > h1 {
-    padding-top: 10px;
-}
-body > header > h2, h1 {
-    line-height: 20px;
-    position: center;
     text-align: center;
+
+}
+
+body > header > h1 {
+    position: absolute;
+    left: 50%;
 }
 body > header > ul{
     display: flex ;
     justify-content: space-between;
-
+    list-style-type: none;
+    padding-right: 40px;
 }
 
 .trips_flex {
