@@ -28,8 +28,9 @@ header {
 body > header {
     color: rgb(119, 119, 119);
     background-color:  rgba(110, 219, 119, 0.75) ;
+    border-radius: 15px;
     text-align: center;
-
+    padding-bottom: 1px;
 }
 
 body > header > h1 {
@@ -62,10 +63,12 @@ body > header > ul{
 }
 
 .trips_flex >* {
-    background-color: rgba(194, 194, 194, 0.75) ;
+    background-color: rgba(110, 219, 119, 0.75) ;
+    border-radius: 15px;
     width: 200px;
     margin: 5%;
-    padding: 15px
+    padding: 15px;
+    text-align: center;
 
 }
 
