@@ -5,11 +5,12 @@
 <div class = views-flex>
 <form action="/transport_types/{{transport_type.id}}", method='POST'>
     <div>
-        <label for="transport_type">Input a new vehicle, include fuel type: </label>
+        <label for="transport_type">Input a new vehicle, include fuel type: </label><br>
         <input type="text" id="transport_type" name="transport_type" value="{{transport_type.mode_of_travel}}">
-        <label for="transport_mpg">Input the vehicles average MPG: </label>
+        <div><br>
+        <label for="transport_mpg">Input the vehicles average MPG: </label><br>
         <input type="int" id="transport_mpg" name="transport_mpg" value="{{transport_type.mpg}}">
-        <input type="submit">
+        <div><br><input type="submit"></div>
     </div>
 </form>
 </div>
